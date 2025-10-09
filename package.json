@@ -1,0 +1,88 @@
+{
+  "name": "parkeoya-testing",
+  "version": "1.0.0",
+  "description": "Suite de pruebas completa para ParkeoYa - Unit Tests, Integration Tests y Acceptance Tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:all",
+    "test:unit": "jest unit-tests/",
+    "test:unit:frontend": "jest unit-tests/frontend/",
+    "test:unit:backend": "jest unit-tests/backend/",
+    "test:integration": "jest integration-tests/",
+    "test:acceptance": "cucumber-js acceptance-tests/features/ --require acceptance-tests/steps/",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:acceptance",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "coverage:frontend": "jest unit-tests/frontend/ --coverage",
+    "coverage:backend": "jest unit-tests/backend/ --coverage",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "dev": "npm run test:watch",
+    "ci": "npm run lint && npm run test:all && npm run coverage"
+  },
+  "keywords": [
+    "testing",
+    "jest",
+    "cucumber",
+    "bdd",
+    "unit-tests",
+    "integration-tests",
+    "parkeoya"
+  ],
+  "author": "Lorem Ipsum Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "@babel/preset-react": "^7.22.0",
+    "@cucumber/cucumber": "^10.0.0",
+    "@playwright/test": "^1.36.0",
+    "@testing-library/jest-dom": "^6.1.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.0",
+    "eslint": "^8.44.0",
+    "eslint-plugin-jest": "^27.2.0",
+    "eslint-plugin-react": "^7.32.0",
+    "jest": "^29.6.0",
+    "jest-environment-jsdom": "^29.6.0",
+    "supertest": "^6.3.0",
+    "playwright": "^1.36.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/jest.setup.js"
+    ],
+    "moduleNameMapping": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/config/**",
+      "!**/node_modules/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    },
+    "testMatch": [
+      "**/__tests__/**/*.(js|jsx)",
+      "**/*.(test|spec).(js|jsx)"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
+}
