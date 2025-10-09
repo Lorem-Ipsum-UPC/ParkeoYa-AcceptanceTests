@@ -86,23 +86,5 @@ npm run coverage
 - **Feature Files**: `feature-name.feature`
 - **Step Definitions**: `feature-name.steps.js`
 
-## Contribución
 
-1. Crear una nueva rama para las pruebas: `git checkout -b test/feature-name`
-2. Seguir las convenciones de naming establecidas
-3. Asegurar cobertura mínima del 80%
-4. Crear pull request con descripción detallada
 
-## Cobertura Actual
-
-**Backend Coverage:**
-- Services: 85% line coverage
-- Controllers: 78% line coverage  
-- Models: 92% line coverage
-- Overall Backend: 82% line coverage
-
-**Frontend Coverage:**
-- Components: 75% line coverage
-- Services: 80% line coverage
-- Utils: 88% line coverage
-- Overall Frontend: 77% line coverage
